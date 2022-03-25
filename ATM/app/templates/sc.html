@@ -1,0 +1,93 @@
+{% load static %}
+<head >
+    <script>
+        function onclk(){
+            window.location.reload();
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="{% static 'css/options.css' %}">
+    <style>
+        .buttons {
+            position: absolute;
+            width: 100%;
+        }
+
+        .all-btns {
+            display: flex;
+        }
+
+        .buttons-right {
+            padding-left: 5rem;
+            width: 50%;
+            display: inline;
+        }
+
+        .buttons-left {
+            width: 50%;
+            display: inline;
+            padding-left: 5rem;
+        }
+
+        .btn {
+            margin-left: 27rem;
+            margin-top: 10%;
+            height: 5rem;
+            border: none;
+            width: 30%;
+            font-family: poppins;
+            font-size: 24px;
+            background: linear-gradient(to left top,
+                    rgba(255, 255, 255, 0.884),
+                    rgba(255, 255, 255, 0.753));
+            border-radius: 2rem;
+            box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+        }
+
+        .next {
+            position: relative;
+            padding-left: 5rem;
+            padding-top: 12rem;
+            
+            
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="glass">
+            <div style=" width: 100%; height: 100vh; display: flex; flex-direction: column; overflow-y: hidden;">
+                
+                <div style="height: 53vh; width: 100%; display: flex;align-items: center; align-content: center;">
+                    <img style="display: flex; align-self: center; width: 40%; margin-left: 30%; height: 47vh;" src="{% url 'sc' %}">
+                </div>
+                <div style="height: 20vh; width: 100%; display: flex;align-items: center; align-content: center;">
+                    
+                        
+                        <div style="display: flex;justify-content: center;align-items: center; height: 18vh; width: 50%; margin-left: 25%;">
+                        <!-- <p style = "text-align: center;font-size: 2.5vh;">
+                            {% if isUrl %}
+                            Scanned output:<a href="{{barcode}}">{{ barcode }}</a>
+                            {% else %}
+                            Scanned output: {{barcode}}
+                            
+                            {% endif %}
+                        </p> -->
+                        
+                        <p style = "text-align: center;font-size: 2.5vh;">
+                        <a href="{% url 'otp' %}">
+                            <button class="btn" >Proceed</i>
+                            </button>
+                        </p>
+                        </div>
+                    
+                </div>
+                <div style="height: 20vh; width: 100%;display: flex; align-items: center; justify-content: center;">
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+   
+</body>

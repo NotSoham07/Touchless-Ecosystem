@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3ipEeHtTOGHMCnhp1RLJniVjd6WdYiUnLzQ&usqp=CAU"
+    type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="https://unpkg.com/handsfree@8.4.0/build/lib/assets/handsfree.css" />
+  <script src="https://unpkg.com/handsfree@8.4.0/build/lib/handsfree.js"></script>
+
+  <title>Snowflake Cafe</title>
+
+  {%load static%}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'home.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .row {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      padding: 0 4px;
+
+
+    }
+
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+      transition: transform.2s;
+    }
+
+    .column img:hover {
+      transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 800px) {
+      .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+
+    button {
+      background-color: rgb(71, 60, 23);
+
+      padding: 2rem;
+      font-family: 'Lobster', cursive;
+      color: white;
+      font-size: 2.5rem;
+      float: right;
+
+    }
+
+    button:hover {
+      background-color: rgba(67, 70, 71, 0.747);
+
+    }
+
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+
+    .fa:hover {
+      opacity: 0.7;
+    }
+
+    .fa-facebook {
+      background: transparent;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: transparent;
+      color: white;
+    }
+
+    .fa-instagram {
+      background: transparent;
+      color: white;
+    }
+
+    span {
+      content: "\2744";
+
+      color: white;
+      width: 30px;
+    }
+
+    .header {
+      padding: 150px;
+      text-align: center;
+      background-image: url(https://images.unsplash.com/photo-1545086421-168708d4f603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      backdrop-filter: blur(5px);
+    }
+
+    .footer {
+      padding: 10px;
+      text-align: center;
+      background-image: url(https://images.unsplash.com/photo-1545086421-168708d4f603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      margin-top: 1rem;
+
+    }
+
+    h1 {
+
+      font-family: 'Lobster', cursive;
+      color: whitesmoke;
+      font-size: 8rem;
+      margin: auto;
+
+
+
+    }
+
+    body {
+      background-color: rgb(8, 8, 8);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+
+    }
+
+    h2 {
+
+      color: whitesmoke;
+      font-size: 75px;
+      margin-top: -1%;
+      background-color: transparent;
+
+      font-family: 'Dancing Script', cursive;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+
+
+    }
+
+    p {
+      font-family: 'Sansita Swashed', cursive;
+      color: white;
+
+
+      font-size: 35px;
+    }
+
+    .footer h2 {
+      font-size: 2.5rem;
+      font-family: 'Sansita Swashed', cursive;
+      margin: 1%;
+    }
+
+    .topnav {
+
+      margin: none;
+      padding-top: 1rem;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.932);
+      padding-left: 3rem;
+      border-bottom: solid rgba(44, 43, 40, 0.774);
+      border-radius: 2rem;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+
+
+
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      margin-left: 2rem;
+      font-family: 'Sansita Swashed', cursive;
+      border: solid transparent;
+      border-radius: 2rem;
+
+
+
+    }
+
+    .topnav a:hover {
+      background-color: rgba(20, 20, 20, 0.747);
+      border: solid rgba(63, 53, 37, 0.842);
+
+    }
+
+    .topnav a.active {
+      background-color: #323532;
+      color: white;
+      text-decoration: underline;
+      border: solid rgba(63, 53, 37, 0.842);
+    }
+
+    .topnav .icon {
+      display: none;
+
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav a:not(:first-child) {
+        display: none;
+      }
+
+      .topnav a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav.responsive {
+        position: relative;
+      }
+
+      .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h2 style="font-size:32px; font-family: 'Lobster', cursive;color: cornsilk;padding: 0.7% ;padding-left: 7%; ;">
+    <span>&#10052;</span> Snowflake cafe <span>&#10052;</span></h2>
+
+
+  <div class="topnav" id="myTopnav">
+
+    <a href="{% url 'home' %}" class="active" style="margin-left: 75rem;"> Home</a>
+    <a href="{% url 'about'%}">About</a>
+    <a href="{% url 'menu' %}">Menu</a>
+    <a href="{% url 'feedback' %}">Feedback</a>
+    <a href="{% url 'status' %}">Status</a>
+    <a href="{% url 'tray'%}">Cart(<span id="cart">0</span>)</a>
+    <!-- <a href="{% url 'joinus' %}">Join us</a> -->
+
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+
+  <div class="header">
+    <div class="background"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p style="font-size: 25px; margin-top: 3rem; ;">Life begins after coffee..... </p><br>
+
+    <h1 style="text-decoration-line: overline underline; color: rgba(223, 189, 139, 0.856); ">Rise & Shine</h1><br><br>
+    <!-- <p>Ordering for the first time?? get<b> 30% OFF</b> on your 1st order </p>
+      
+      <p style="float: left; margin: 2rem;padding: 2rem;font-size:25px;"><a href="signup.html">Sign up</a>to place your first order</p><br><br> -->
+    <button type="button" onclick="">Order now</button>
+
+  </div>
+
+
+
+
+
+
+
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+  <!-- Photo Grid -->
+  <!--<div class="row" > 
+  <div class="column" style="margin: 1rem;">
+    <img src="../cafeinterior2.jpg" style="width:100% ; margin-left: 2rem; height: 100%; ">
+   
+  
+  </div>
+  <div class="column" style="margin: 1rem;">
+    <p></p>
+    
+  </div>  
+  <div class="column" style="margin: 1rem;">
+    <img src="../cafeinterior3.jpg" style="width:100% ; height: 50%;">
+    <img src="../cafeinterior.jpg" style="width:100% ; height: 50%;">
+    
+    
+    
+  </div>-->
+  <!-- <div class="column" style="margin: 1rem;">
+    <img src="../cafeinterior4.jpg" style="width:100%">
+    <img src="../cafeinterior2.jpg" style="width:100%">
+    <img src="../cafeinterior3.jpg" style="width:100%">
+    <img src="../cafeinterior.jpg" style="width:100%">-->
+
+  </div>
+  </div>
+  <div class="row" style="margin: 2rem; padding: 3rem;">
+    <div class="column">
+      <img
+        src="https://media3.s-nbcnews.com/j/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p_67dfb6820f7d3898b5486975903c2e51.fit-2000w.jpg"
+        style="width:600px ; height: 350px;margin: auto; ">
+
+    </div>
+    <div class="column">
+      <h4
+        style="text-align: center;font-size: 3rem;color: white;margin-top:7rem; font-family: 'Sansita Swashed', cursive;text-decoration: underline;">
+        Mission</h4>
+      <p style="font-size: 1.7rem;text-align: center;">We will always be 'our' brand - in the sense, that you will
+        always find the warmth and togetherness you expect from a good cup of the finest brew in the world. Customer
+        Satisfaction is what we judge ourselves by. If they are delighted, we have served our purpose of 'being'.</p>
+
+    </div>
+    <!--<div class="column">
+    <img src="../burgerhome.jpg" style="width:100% ;  height: 100%; ">
+
+  </div>
+  <div class="column">
+    <h4 style="text-align: center;font-size: 3rem;color: white;font-family: 'Sansita Swashed', cursive;text-decoration: underline;">Vision</h4>
+
+    <p style="font-size: 1.8rem;text-align: center;">Dotting Mumbai's tea-loving landscape with at least 20 company owned outlets. Plans include growing to 500 outlets Pan India. The process has already been set in motion by entering into a tie-up with Franchise India Pvt Ltd. In three years, Tea Villa will be all over the world.</p>
+
+  </div>-->
+  </div>
+  <div class="row" style="margin: 1rem; padding: 1rem;margin-bottom: 5rem;">
+    <div class="column" style="width: 40%;">
+      <h4
+        style="text-align: center;margin-top:7rem; font-size: 3rem;color: white;font-family: 'Sansita Swashed', cursive;text-decoration: underline;">
+        Vision</h4>
+      <p style="font-size: 1.8rem;text-align: center;">Dotting Mumbai's tea-loving landscape with at least 20 company
+        owned outlets. Plans include growing to 500 outlets Pan India. The process has already been set in motion by
+        entering into a tie-up with Franchise India Pvt Ltd. In three years, Snowflake will be all over the world.</p>
+
+    </div>
+    <div class="column">
+      <img
+        src="https://st.depositphotos.com/1900347/4146/i/950/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+        style="width:600px ; height: 350px;margin-left: 10rem;object-fit:cover;  ">
+
+    </div>
+
+  </div>
+
+  <div class="row" style="margin: 2rem; padding: 3rem;">
+    <div class="column">
+      <img
+        src="https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        style="width:400px ; height: 300px;margin: auto; ">
+
+    </div>
+    <div class="column">
+      <h4
+        style="text-align: center;font-size: 3rem;color: white;font-family: 'Sansita Swashed', cursive; margin-top: 2rem;">
+        Experience our best foods <br><br> with a perfect cup of coffee!!</h4>
+      <p style="font-size: 1.7rem;text-align: center;"></p>
+
+    </div>
+  </div>
+  <h4
+    style="text-align: center;font-size: 30px;padding: 2rem;color: blanchedalmond;font-family: 'Sansita Swashed', cursive;">
+    "Its never too latte to start your day with a coffee"</h4>
+
+
+  <div class="footer">
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-instagram"></a>
+
+    <h2>Contact :<a href="call:9876543210">987654321</a></h2>
+    <h2>E-mail :<a href="mailto:aaa.gmail.com">Snowflakecafe.gmail.com</a></h2>
+  </div>
+  <script>
+    console.log('working');
+    if (localStorage.getItem('cart') == null) {
+      var cart = {};
+    } else {
+      cart = JSON.parse(localStorage.getItem('cart'));
+      document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    }
+    $('.cart').click(function () {
+      console.log('clicked');
+      var idstr = this.id.toString();
+      console.log(idstr);
+      if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+
+      } else {
+        qty = 1;
+        name = document.getElementById('name' + idstr).innerHTML;
+        cart[idstr] = [qty, name];
+      }
+      console.log(cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    });
+
+    window.onscroll = function () {
+      myFunction()
+    };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
+  <script>
+    handsfree = new Handsfree({
+      hands: true,
+      showDebug: false
+    })
+    handsfree.start()
+
+    handsfree.enablePlugins('browser')
+
+
+    handsfree.use('logPalmPointers', ({
+      hands
+    }) => {
+      // Bail if no pointers
+      if (!hands.pointer) return
+
+      // Log the pointer positions: {x, y, isVisible}
+      // [0] === left hand, [1] === right hand
+      console.log('Pointers:', hands.pointer[0], hands.pointer[1])
+
+      console.log('Pinch States', hands.pinchState)
+
+      // EXAMPLE: CLICKING BY PINCHING
+      // Let's do right hand [1] index finger [0]
+      if (hands.pinchState[1][0] === 'start' && hands.pointer[1].isVisible) {
+        // Get the element under the pointer
+        const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
+        if ($el) {
+          $el.dispatchEvent(
+            new MouseEvent('click', {
+              bubbles: true,
+              cancelable: true,
+              clientX: hands.pointer[1].x,
+              clientY: hands.pointer[1].y
+            })
+          )
+        }
+      }
+
+      console.log('')
+    })
+  </script>
+
+</body>
+
+</html>

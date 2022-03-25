@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/handsfree@8.4.0/build/lib/assets/handsfree.css" />
+    <script src="https://unpkg.com/handsfree@8.4.0/build/lib/handsfree.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Paytm merchant payment page</title>
+</head>
+
+<body>
+    <h1>Redirecting you to the merchant....</h1>
+    <h1>Please do not refresh your page....</h1>
+    <form action="https://securegw-stage.paytm.in/theia/processTransaction" method="post" name="paytm">
+        {% for key, value in param_dict.items %}
+        <input type="hidden" name="{{key}}" value="{{value}}">
+        {% endfor %}
+
+    </form>
+</body>
+<script>
+    document.paytm.submit()
+</script>
+<script>
+    handsfree = new Handsfree({
+        hands: true,
+        showDebug: false
+    })
+    handsfree.start()
+
+
+    handsfree.enablePlugins('browser')
+
+
+    handsfree.use('logPalmPointers', ({
+        hands
+    }) => {
+        // Bail if no pointers
+        if (!hands.pointer) return
+
+        // Log the pointer positions: {x, y, isVisible}
+        // [0] === left hand, [1] === right hand
+        console.log('Pointers:', hands.pointer[0], hands.pointer[1])
+
+
+        console.log('Pinch States', hands.pinchState)
+
+        // EXAMPLE: CLICKING BY PINCHING
+        // Let's do right hand [1] index finger [0]
+        if (hands.pinchState[1][0] === 'start' && hands.pointer[1].isVisible) {
+            // Get the element under the pointer
+            const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
+            if ($el) {
+                $el.dispatchEvent(
+                    new MouseEvent('click', {
+                        bubbles: true,
+                        cancelable: true,
+                        clientX: hands.pointer[1].x,
+                        clientY: hands.pointer[1].y
+                    })
+                )
+            }
+        }
+
+        console.log('')
+    })
+</script>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glass Kiosk</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/handsfree@8.4.0/build/lib/assets/handsfree.css" />
+  <script src="https://unpkg.com/handsfree@8.4.0/build/lib/handsfree.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fade.css">  
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+main {
+  min-height: 100vh;
+  background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(14, 0, 63));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass {
+  background: white;
+  height: 80vh;
+  width: 70%;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 2rem;
+  z-index: 3;
+  backdrop-filter: blur(0.3rem);
+  display: flex;
+}
+
+.circle1,
+.circle2 {
+  background: red;
+  background: linear-gradient(
+    to right bottom,
+    rgba(42, 6, 172, 0.356),
+    rgba(255, 255, 255, 0)
+  );
+  height: 15rem;
+  width: 15rem;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle1 {
+  top: 5%;
+  right: 15%;
+}
+
+.circle2 {
+  bottom: 5%;
+  left: 10%;
+}
+
+.btn {
+  width: 30%;
+  background: linear-gradient(
+    to left top,
+    rgba(255, 255, 255, 0.884),
+    rgba(255, 255, 255, 0.753)
+  );
+  border-radius: 2rem;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+}
+
+.help {
+  margin: 2rem;
+  width: 100%;
+  display: flex;
+  margin-left: 10%;
+  margin-right: 5%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.card {
+  display: flex;
+  background: linear-gradient(
+    to left top,
+    rgba(122, 14, 14, 0.5),
+    rgba(255, 255, 255, 0.8)
+  );
+  border-radius: 5rem;
+  margin: 2rem 0rem;
+  padding: 0.5rem;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+  justify-content: space-between;
+}
+.card img {
+  float: left;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  top: 25%;
+  left: 30px;
+}
+
+.card h2 {
+  position: relative;
+  top: -30px;
+  left: 130px;
+  width: 500px;
+}
+
+.select1 {
+  display: flex;
+  padding: rem;
+  margin-top: 120px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.plane {
+  padding: 1rem;
+  border-radius: 2rem;
+  justify-content: space-evenly;
+}
+
+.select2 {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.back{
+            position: relative;
+            right: 50px;
+        }
+.card{
+    display: flex;
+    background: linear-gradient(to left top, rgba(255,255,255,0.5), rgba(255,255,255,0.3));
+    border-radius: 5rem;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    
+    box-shadow: 6px 6px 20px rgba(122,122,122, 0.212);
+    justify-content: space-between;
+}
+.btn{
+  width: 30%;
+  background: linear-gradient(to left top, rgba(255, 255, 255, 0.884), rgba(255, 255, 255, 0.753));
+  border-radius: 2rem;
+  box-shadow: 6px 6px 20px rgba(122,122,122, 0.212);
+}
+.next{
+            position: relative;
+            align-self: center;
+            right: 30px;
+        }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<main>
+    <div class = "back">
+        <a href="{% url 'index' %}">
+        <img style="width: 120px;height: 120px;" src="/media/shop/mimages/back.png" style="width:300px;height:200px;"></a>
+        </div>
+<!-- <video autoplay muted loop id="myVideo">
+  <source src="./video-2.mp4" type="video/mp4">
+</video> -->
+<section class = 'glass'>
+<div class="help">  
+    <a href="{% url 'home' %}">
+        <div class="card">
+    <img src="/media/shop/mimages/cup.png" >
+    
+    <h2>Cafe Ordering</h2>
+      
+  </div>
+</a>
+  <div class="card">
+  <img src="/media/shop/mimages/ticket.png">
+  <a href="{% url 'movies' %}">
+  <div class="card-info">
+    <h2>Movie Ticket Booking</h2>
+</a>
+  </div>
+  </div>
+
+  
+</div>
+<!-- <div class = "next">
+  <a href="{% url 'front' %}">
+  <img style="width: 140px;height: 140px;" src="/media/shop/mimages/next.png" style="width:300px;height:200px;"></a>
+  </div> -->
+</section>
+</main>
+<div class = "circle1"></div>
+<div class = "circle2"></div>
+
+<script>
+  handsfree = new Handsfree({
+ hands: true,
+ showDebug: false
+})
+handsfree.start()
+
+// Enable all plugins tagged with "browser" (palmPointers, pinchScroll, pinchers)
+// @see https://handsfree.js.org/ref/plugin/
+handsfree.enablePlugins('browser')
+
+// The above is the same as turning on the following plugins individually:
+// handsfree.plugin.palmPointers.enable()
+// handsfree.plugin.pinchers.enable()
+// handsfree.plugin.pinchScroll.enable()
+
+// You can customize anything, just peek into their documentation. Example:
+// @see https://handsfree.js.org/ref/plugin/palmPointers.html
+
+// Let's create a "plugin" that runs on every webcam frame
+handsfree.use('logPalmPointers', ({hands}) => {
+ // Bail if no pointers
+ if (!hands.pointer) return
+ 
+ // Log the pointer positions: {x, y, isVisible}
+ // [0] === left hand, [1] === right hand
+ console.log('Pointers:', hands.pointer[0], hands.pointer[1])
+ 
+ // Log the pinch state (touching a finger tip with your thumb)
+ // Possible values are null, 'start', 'held', 'released'
+ // @see https://handsfree.js.org/ref/plugin/pinchers.html#pinch-states-with-pinchstate
+ console.log('Pinch States', hands.pinchState)
+
+ // EXAMPLE: CLICKING BY PINCHING
+ // Let's do right hand [1] index finger [0]
+ if (hands.pinchState[1][0] === 'start' && hands.pointer[1].isVisible) {
+   // Get the element under the pointer
+   const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
+   if ($el) {
+     $el.dispatchEvent(
+       new MouseEvent('click', {
+         bubbles: true,
+         cancelable: true,
+         clientX: hands.pointer[1].x,
+         clientY: hands.pointer[1].y
+       })
+     )
+   }
+ }
+
+ console.log('')
+})</script>
+</body>
+</html>

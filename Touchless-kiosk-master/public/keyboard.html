@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Booking Number</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/dcode.css">
+    <link rel="stylesheet" href="keyboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/handsfree@8.4.0/build/lib/assets/handsfree.css" />
+    <script src="https://unpkg.com/handsfree@8.4.0/build/lib/handsfree.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fade.css">
+
+
+    <style>
+        .btn {
+            width: 12rem;
+            position: right:;
+            ;
+            background: linear-gradient(to left top,
+                    rgba(255, 255, 255, 0.884),
+                    rgba(255, 255, 255, 0.753));
+            border-radius: 2rem;
+            box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.5);
+            border: none;
+            outline: none;
+
+        }
+
+        .text-box {
+            margin-right: 550px;
+            padding-left: 15rem;
+            width: 100px;
+
+        }
+
+        .text-box input {
+            margin-top: 20px;
+            margin-left: 0px;
+            background: linear-gradient(to left top,
+                    rgba(255, 255, 255, 0.884),
+                    rgba(255, 255, 255, 0.753));
+            border: none;
+            width: 400px;
+            height: 60px;
+            border-radius: 2rem;
+            box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.5);
+
+        }
+
+        .booking-input h2 {
+            padding: 5rem;
+            padding-left: 6rem;
+            text-align: center;
+            color: white;
+            shad
+        }
+
+        h2 {
+            font-family: poppins;
+            font-size: 50px;
+            shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-family: poppins;
+        }
+
+        input[type=text] {
+            padding-left: 2rem;
+            font-family: poppins;
+            font-size: 24px;
+            outline: none;
+        }
+
+        .back {
+            position: relative;
+            right: 50px;
+        }
+
+        .next {
+            position: relative;
+            align-self: center;
+            right: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <div class="back">
+            <a href="carrier.html">
+                <img style="width: 120px;height: 120px;" src="/img/back.png" style="width:300px;height:200px;"></a>
+        </div>
+        <section class='glass'>
+
+            <div class="booking-input">
+                <h2>Enter Booking ID</h2>
+                <div class='text-box'>
+                    <input id="deadmeat" type="text" class="use-keyboard-input"></input>
+                </div>
+            </div>
+
+            <div class="next">
+                <a href="/details.html">
+                    <img onclick="myFunction()" style="width: 140px;height: 140px;" src="/img/next.png"
+                        style="width:300px;height:200px;"></a>
+            </div>
+        </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+
+    <script src="./save_data.js"></script>
+    <script src="keyboard.js"></script>
+    
+    <script >
+            handsfree = new Handsfree({
+                hands: true,
+                showDebug: false
+            })
+        handsfree.start()
+
+        // Enable all plugins tagged with "browser" (palmPointers, pinchScroll, pinchers)
+        // @see https://handsfree.js.org/ref/plugin/
+        handsfree.enablePlugins('browser')
+
+        // The above is the same as turning on the following plugins individually:
+        // handsfree.plugin.palmPointers.enable()
+        // handsfree.plugin.pinchers.enable()
+        // handsfree.plugin.pinchScroll.enable()
+
+        // You can customize anything, just peek into their documentation. Example:
+        // @see https://handsfree.js.org/ref/plugin/palmPointers.html
+
+        // Let's create a "plugin" that runs on every webcam frame
+        handsfree.use('logPalmPointers', ({
+            hands
+        }) => {
+            // Bail if no pointers
+            if (!hands.pointer) return
+
+            // Log the pointer positions: {x, y, isVisible}
+            // [0] === left hand, [1] === right hand
+            console.log('Pointers:', hands.pointer[0], hands.pointer[1])
+
+            // Log the pinch state (touching a finger tip with your thumb)
+            // Possible values are null, 'start', 'held', 'released'
+            // @see https://handsfree.js.org/ref/plugin/pinchers.html#pinch-states-with-pinchstate
+            console.log('Pinch States', hands.pinchState)
+
+            // EXAMPLE: CLICKING BY PINCHING
+            // Let's do right hand [1] index finger [0]
+            if (hands.pinchState[1][0] === 'start' && hands.pointer[1].isVisible) {
+                // Get the element under the pointer
+                const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
+                if ($el) {
+                    $el.dispatchEvent(
+                        new MouseEvent('click', {
+                            bubbles: true,
+                            cancelable: true,
+                            clientX: hands.pointer[1].x,
+                            clientY: hands.pointer[1].y
+                        })
+                    )
+                }
+            }
+
+            console.log('')
+        })
+    </script>
+</body>

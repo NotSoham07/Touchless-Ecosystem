@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cafe website</title>
+
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/handsfree@8.4.0/build/lib/assets/handsfree.css" />
+  <script src="https://unpkg.com/handsfree@8.4.0/build/lib/handsfree.js"></script>
+
+
+  <link rel="stylesheet" href="home.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* body {font-family: Arial, Helvetica, sans-serif;}
+      * {box-sizing: border-box;}*/
+
+    input[type=text],
+    select,
+    textarea {
+      width: 41%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      /* box-sizing: border-box;*/
+      margin-top: 6px;
+
+      margin-right: 10px;
+      margin-left: 10px;
+      margin-bottom: 16px;
+      background-color: black;
+      color: white;
+      /* resize: vertical;*/
+    }
+
+    input[type=email] {
+
+      width: 41%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      /* box-sizing: border-box;*/
+      background-color: black;
+      color: white;
+      margin-left: 6px;
+
+      margin-top: 6px;
+      margin-bottom: 16px;
+      /* resize: vertical;*/
+    }
+
+    input[type=number] {
+      width: 41%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      /* box-sizing: border-box;*/
+      margin-top: 6px;
+
+      margin-right: 10px;
+      margin-left: 10px;
+      margin-bottom: 16px;
+      background-color: black;
+      color: white;
+      /* resize: vertical;*/
+    }
+
+    input[type=file] {
+      width: 41%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      /* box-sizing: border-box;*/
+      margin-top: 6px;
+
+      margin-right: 10px;
+      margin-left: 10px;
+      margin-bottom: 16px;
+      background-color: black;
+      color: white;
+      /* resize: vertical;*/
+    }
+
+    input[type=submit] {
+      background-color: rgba(43, 43, 43, 0.884);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 84%;
+      margin-left: 1.5rem;
+    }
+
+    input[type=submit]:hover {
+      background-color: rgba(43, 43, 43, 0.959);
+    }
+
+    .container {
+      border-radius: 7px;
+      background-color: transparent;
+      margin-left: 26rem;
+      margin-right: 26rem;
+      margin-top: 5rem
+    }
+
+    span {
+      content: "\2744";
+
+      color: white;
+      width: 30px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <p></p>
+  <div class="topnav" id="myTopnav">
+    <a href="#home.html" style="font-size: 30px; font-family: 'Lobster', cursive; "><span>&#10052;</span> Snowflake cafe
+      <span>&#10052;</span></a>
+
+    <a href="home.html" style="margin-left: 55rem;">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="feedback.html">feedback</a>
+    <a href="contact.html" class="active">Contact us</a>
+
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+
+  <h4
+    style="color: blanchedalmond;font-size: 20px;font-family: 'Sansita Swashed', cursive;margin-top: 5rem; text-align:center;">
+    Willing to join our team? We are keen to welcome you </h4>
+
+  <div class="container" style=" margin:auto;padding:4rem ;">
+    <form action="" method="POST">
+      <!-- <label for="fname">First Name</label>-->
+      <input type="text" id="fname" name="firstname" placeholder="Name" required>
+
+      <!-- <label for="lname">Last Name</label>-->
+      <input type="email" id="email" name="lastname" placeholder="email" required>
+
+      <input type="number" id="number" name="number" placeholder="Phone no." required>
+
+      <input type="text" id="location" name="location" placeholder="Enter location" required>
+      <input type="file" id="file" name="file" placeholder="Choose file" required>
+
+
+
+      <!--<label for="subject">Subject</label>-->
+      <textarea id="subject" name="subject" placeholder="Write something.."
+        style="height:250px; width: 85%; margin-left: 1rem;" required></textarea>
+
+      <input type="submit" value="Apply now">
+    </form>
+
+  </div>
+  <script>
+    handsfree = new Handsfree({
+      hands: true,
+      showDebug: false
+    })
+    handsfree.start()
+
+    handsfree.enablePlugins('browser')
+
+    handsfree.use('logPalmPointers', ({
+      hands
+    }) => {
+      // Bail if no pointers
+      if (!hands.pointer) return
+
+      console.log('Pointers:', hands.pointer[0], hands.pointer[1])
+
+
+      console.log('Pinch States', hands.pinchState)
+
+      // EXAMPLE: CLICKING BY PINCHING
+      // Let's do right hand [1] index finger [0]
+      if (hands.pinchState[1][0] === 'start' && hands.pointer[1].isVisible) {
+        // Get the element under the pointer
+        const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
+        if ($el) {
+          $el.dispatchEvent(
+            new MouseEvent('click', {
+              bubbles: true,
+              cancelable: true,
+              clientX: hands.pointer[1].x,
+              clientY: hands.pointer[1].y
+            })
+          )
+        }
+      }
+
+      console.log('')
+    })
+  </script>
+
+</body>
+
+</html>

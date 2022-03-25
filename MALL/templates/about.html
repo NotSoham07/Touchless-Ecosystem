@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/handsfree@8.4.0/build/lib/assets/handsfree.css" />
+  <script src="https://unpkg.com/handsfree@8.4.0/build/lib/handsfree.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3ipEeHtTOGHMCnhp1RLJniVjd6WdYiUnLzQ&usqp=CAU"
+    type="image/gif" sizes="16x16">
+
+  <title>Snowflake Cafe</title>
+
+  {%load static%}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+  <style>
+    h1 {
+
+      font-family: 'Lobster', cursive;
+      color: whitesmoke;
+      font-size: 8rem;
+      margin: auto;
+
+
+
+    }
+
+
+    body {
+      background-color: rgb(8, 8, 8);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+
+    }
+
+    h2 {
+
+      color: whitesmoke;
+      font-size: 75px;
+      margin-top: -1%;
+      background-color: transparent;
+
+      font-family: 'Dancing Script', cursive;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .topnav {
+
+      margin: none;
+      padding-top: 1rem;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.932);
+      padding-left: 3rem;
+      border-bottom: solid rgba(44, 43, 40, 0.774);
+      border-radius: 2rem;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+
+
+
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      margin-left: 2rem;
+      font-family: 'Sansita Swashed', cursive;
+      border: solid transparent;
+      border-radius: 2rem;
+
+
+
+    }
+
+    .topnav a:hover {
+      background-color: rgba(20, 20, 20, 0.747);
+      border: solid rgba(63, 53, 37, 0.842);
+
+    }
+
+    .topnav a.active {
+      background-color: #323532;
+      color: white;
+      text-decoration: underline;
+      border: solid rgba(63, 53, 37, 0.842);
+    }
+
+    .topnav .icon {
+      display: none;
+
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav a:not(:first-child) {
+        display: none;
+      }
+
+      .topnav a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav.responsive {
+        position: relative;
+      }
+
+      .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    }
+
+
+
+
+
+
+
+
+    .row {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      padding: 0 4px;
+      margin-top: 5%;
+      margin-left: 15%;
+      margin-right: 10%;
+
+
+
+    }
+
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+      padding: 0 4px;
+
+      margin: 10%;
+    }
+
+    .img-center {
+      margin: 0 auto;
+      display: block;
+      width: 70%;
+    }
+
+    h3 {
+      font-size: 3rem;
+      font-family: 'Sansita Swashed';
+      text-decoration: rgb(233, 217, 217);
+
+    }
+
+
+    .header {
+      padding: 10%;
+      text-align: center;
+
+      background-image: url(https://gamblebaycoffee.com/wp-content/uploads/2017/07/Wide-Bottom-Travel-Mugs.webp);
+
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      background-size: cover;
+
+
+
+
+    }
+
+    .row p {
+      font-size: 2rem;
+      text-align: center;
+      font-family: 'Sansita Swashed';
+      color: white;
+
+    }
+
+    .middle {
+      background-image: url(https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      background-size: cover;
+      padding: 5%;
+
+
+    }
+
+    .middle h3 {
+
+      font-size: 6rem;
+      font-family: 'Sansita Swashed', cursive;
+
+
+    }
+
+    .about h2 {
+      font-size: 5rem;
+      font-family: 'Sansita Swashed';
+      text-align: center;
+      text-decoration: rgba(228, 223, 195, 0.945);
+      color: white;
+      margin-top: 1%;
+
+    }
+
+    .contact h2 {
+      font-size: 5rem;
+      font-family: 'Sansita Swashed';
+      text-align: center;
+      text-decoration: rgba(228, 223, 195, 0.945);
+      color: white;
+      margin-top: 1%;
+
+    }
+
+    .middle p {
+
+      text-align: right;
+      font-family: 'Sansita Swashed', cursive;
+      font-size: 3rem;
+
+
+    }
+
+    .footer {
+      padding: 5px;
+      text-align: center;
+
+      margin-top: 1rem;
+
+
+
+    }
+
+    .footer h2 {
+      font-size: 2.5rem;
+      font-family: 'Sansita Swashed', cursive;
+    }
+
+    .fa {
+      padding: 10px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+
+    .fa:hover {
+      opacity: 0.7;
+    }
+
+    .fa-facebook {
+      background: transparent;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: transparent;
+      color: white;
+
+    }
+
+    .fa-instagram {
+      background: transparent;
+      color: white;
+
+    }
+
+    span {
+      content: "\2744";
+
+      color: white;
+      width: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  {%load static%}
+  <h2 style="font-size:32px; font-family: 'Lobster', cursive;color: cornsilk;padding: 0.7% ;padding-left: 7%; ;">
+    <span>&#10052;</span> Snowflake cafe <span>&#10052;</span></h2>
+
+  <div class="topnav" id="myTopnav">
+
+    <a href="{% url 'home'%}" style="margin-left: 75rem;">Home</a>
+    <a href="{% url 'about'%}" class="active">About</a>
+    <a href="{% url 'menu'%}">Menu</a>
+    <a href="{% url 'feedback'%}">Feedback</a>
+    <!-- <a href="{% url 'joinus'%}">Join us</a> -->
+    <a href="{% url 'status' %}">Status</a>
+    <a href="{% url 'tray'%}">Cart(<span id="cart">0</span>)</a>
+
+
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+  <div class="header"> </div>
+
+  <div class="about">
+    {%load static%}
+    <h2>About us</h2>
+  </div>
+  <div class="row">
+    <div class="col-lg-3" style="margin: 3%; ">
+      {%load static%}
+      <img class="img-center"
+        src="https://www.flaticon.com/svg/vstatic/svg/2857/2857527.svg?token=exp=1620887952~hmac=6ed635ecc5cc205b711838f7fad49477"
+        style="border-radius: 50%;">
+      <h3 style="text-align: center">Creativity</h3>
+      <p style="text-decoration: white;"> We make decisions, create something new and generate a lot of ideas by
+        thinking outside the box. </p>
+
+    </div>
+    <div class="col-lg-3" style="margin: 3%;">
+      {%load static%}
+      <img class="img-center"
+        src="https://www.flaticon.com/svg/vstatic/svg/1830/1830839.svg?token=exp=1620887914~hmac=68606d58b4aba98d290d300b0115d5fa"
+        style="border-radius: 50%;">
+      <h3 style="text-align: center;">Top cook</h3>
+      <p> Created and served by the top most cooks</p>
+
+    </div>
+    <div class="col-lg-3" style="margin: 3%;">
+
+      <img class="img-center"
+        src="https://www.flaticon.com/svg/vstatic/svg/2921/2921822.svg?token=exp=1620888010~hmac=aa3dbfbfc57f8ea6e6d01c98b7722376"
+        style="border-radius: 50%;">
+      <h3 style="text-align: center;">Unique recipes</h3>
+      <p>Discover unique and unusual food items and beverages</p>
+
+
+
+
+    </div>
+  </div>
+  <div class="middle">
+    <h3>Our journey</h3>
+    <p style="text-decoration: black;">Treating our customers with delicious traits since 1999...</p>
+    <p>Snowflake Cafeis a family Cafe loved by one and all - school going kids, teenagers, friends, executives, and the
+      elderly. </p>
+    <p>As people slowly shift to organic and healthier versions of food, we too are looking in that direction. Our
+      confidence in our intentions, offerings, and service has not been misplaced</p>
+  </div>
+  <div class="footer">
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-instagram"></a>
+    <div class="contact">
+      <h2>To know more about us</h2>
+      <h2 style="opacity: 0.6;">Contact :<a href="call:9876543210">987654321</a></h2>
+      <h2 style="opacity: 0.6; margin-bottom: 2%;">E-mail :<a href="mailto:aaa.gmail.com">Snowflakecafe@gmail.com</a>
+      </h2>
+    </div>
+  </div>
+
+  <script>
+    console.log('working');
+    if (localStorage.getItem('cart') == null) {
+      var cart = {};
+    } else {
+      cart = JSON.parse(localStorage.getItem('cart'));
+      document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    }
+    $('.cart').click(function () {
+      console.log('clicked');
+      var idstr = this.id.toString();
+      console.log(idstr);
+      if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+
+      } else {
+        qty = 1;
+        name = document.getElementById('name' + idstr).innerHTML;
+        cart[idstr] = [qty, name];
+      }
+      console.log(cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    });
+
+
+    window.onscroll = function () {
+      myFunction()
+    };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
+  <script>
+    handsfree = new Handsfree({
+      hands: true,
+      showDebug: false
+    })
+    handsfree.start()
+
+  
+    handsfree.enablePlugins('browser')
+
+ 
+    handsfree.use('logPalmPointers', ({
+      hands
+    }) => {
+      // Bail if no pointers
+      if (!hands.pointer) return
+
+      console.log('Pointers:', hands.pointer[0], hands.pointer[1])
+
+   
+      console.log('Pinch States', hands.pinchState)
+
+      // EXAMPLE: CLICKING BY PINCHING
+      // Let's do right hand [1] index finger [0]
+      if (hands.pinchState[1][0] === 'start' && hands.pointer[1].isVisible) {
+        // Get the element under the pointer
+        const $el = document.elementFromPoint(hands.pointer[1].x, hands.pointer[1].y)
+        if ($el) {
+          $el.dispatchEvent(
+            new MouseEvent('click', {
+              bubbles: true,
+              cancelable: true,
+              clientX: hands.pointer[1].x,
+              clientY: hands.pointer[1].y
+            })
+          )
+        }
+      }
+
+      console.log('')
+    })
+  </script>
+</body>
+
+</html>
